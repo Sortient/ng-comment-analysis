@@ -1,41 +1,72 @@
-<div class="d-flex flex-column min-vh-100">
-    <!-- Main Content -->
-    <div class="container-fluid flex-grow-1">
-      <div class="row">
-        <!-- Dashboard Content -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Comments Analyzed</h5>
-                  <p class="card-text">Total: {{ stats.total_comments }}</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Positive Comments</h5>
-                  <p class="card-text">{{ stats.positive_comments }}</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Negative Comments</h5>
-                  <p class="card-text">{{ stats.negative_comments }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Additional content (e.g., charts or tables) -->
-        </main>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Dashboard</h2>
+
+  <!-- Sentiment Summary -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Total Comments</h5>
+          <p class="card-text display-4">{{ stats.total_comments }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Positive Comments</h5>
+          <p class="card-text display-4 text-success">{{ stats.positive_comments }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Negative Comments</h5>
+          <p class="card-text display-4 text-danger">{{ stats.negative_comments }}</p>
+        </div>
       </div>
     </div>
   </div>
-  
+
+  <!-- Sentiment Trends -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <h5>Sentiment Over Time</h5>
+      <div id="sentiment-trends-chart" class="bg-light" style="height: 300px;"></div>
+    </div>
+  </div>
+
+  <!-- Recent Comments -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <h5>Recent Comments</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Comment</th>
+            <th>Sentiment</th>
+            <th>Author</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let comment of recentComments">
+            <td>{{ comment.text }}</td>
+            <td>
+              <span
+                [class.text-success]="comment.sentiment === 'Positive'"
+                [class.text-danger]="comment.sentiment === 'Negative'"
+                [class.text-muted]="comment.sentiment === 'Neutral'"
+              >
+                {{ comment.sentiment }}
+              </span>
+            </td>
+            <td>{{ comment.author }}</td>
+            <td>{{ comment.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

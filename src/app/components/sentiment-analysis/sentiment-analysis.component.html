@@ -7,23 +7,23 @@
         <div class="card text-center">
           <div class="card-body">
             <h5 class="card-title">Total Comments</h5>
-            <p class="card-text display-4">{{ totalComments }}</p>
+            <p class="card-text display-4">{{ stats.total_comments }}</p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title">Positive Sentiment</h5>
-            <p class="card-text display-4 text-success">{{ positivePercentage }}%</p>
+            <h5 class="card-title">Positive Comments</h5>
+            <p class="card-text display-4 text-success">{{ stats.positive_comments }}</p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title">Negative Sentiment</h5>
-            <p class="card-text display-4 text-danger">{{ negativePercentage }}%</p>
+            <h5 class="card-title">Negative Comments</h5>
+            <p class="card-text display-4 text-danger">{{ stats.negative_comments }}</p>
           </div>
         </div>
       </div>
