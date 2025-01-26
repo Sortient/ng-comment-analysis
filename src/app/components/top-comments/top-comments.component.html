@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Top Comments</h2>
+  
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Top Positive Comments -->
+    <h3>Top Positive Comments</h3>
+    <ul class="list-group">
+      @for (comment of topPositive; track $index) {
+        <li class="list-group-item">
+          <p><strong>Comment:</strong>
+            {{ comment.expanded ? comment.Body : (comment.Body | slice:0:200) + '...' }}
+          </p>
+          <button class="btn btn-link" (click)="toggleComment(comment)">
+            {{ comment.expanded ? 'Read Less' : 'Read More' }}
+          </button>
+          <p><strong>Sentiment Score:</strong> {{ comment.SentimentScore }}</p>
+          <p><strong>Author:</strong> {{ comment.AuthorID }}</p>
+          <p><strong>Posted On:</strong> {{ comment.Timestamp }}</p>
+        </li>
+      }
+    </ul>
+  
+    <!-- Top Negative Comments -->
+    <h3>Top Negative Comments</h3>
+    <ul class="list-group">
+      @for (comment of topNegative; track $index) {
+        <li class="list-group-item">
+          <p><strong>Comment:</strong>
+            {{ comment.expanded ? comment.Body : (comment.Body | slice:0:200) + '...' }}
+          </p>
+          <button class="btn btn-link" (click)="toggleComment(comment)">
+            {{ comment.expanded ? 'Read Less' : 'Read More' }}
+          </button>
+          <p><strong>Sentiment Score:</strong> {{ comment.SentimentScore }}</p>
+          <p><strong>Author:</strong> {{ comment.AuthorID }}</p>
+          <p><strong>Posted On:</strong> {{ comment.Timestamp }}</p>
+        </li>
+      }
+    </ul>
+  </div>

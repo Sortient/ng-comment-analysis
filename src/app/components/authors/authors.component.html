@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Ranked Authors by Comment Count</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Comment Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (author of rankedAuthors; track author.AuthorID) {
+        <tr>
+          <td>{{ author.Username }}</td>
+          <td>{{ author.CommentCount }}</td>
+        </tr>
+        }
+  </table>
+</div>

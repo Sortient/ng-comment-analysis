@@ -1,0 +1,41 @@
+<div class="d-flex flex-column min-vh-100">
+    <!-- Main Content -->
+    <div class="container-fluid flex-grow-1">
+      <div class="row">
+        <!-- Dashboard Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Comments Analyzed</h5>
+                  <p class="card-text">Total: {{ stats.total_comments }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Positive Comments</h5>
+                  <p class="card-text">{{ stats.positive_comments }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Negative Comments</h5>
+                  <p class="card-text">{{ stats.negative_comments }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Additional content (e.g., charts or tables) -->
+        </main>
+      </div>
+    </div>
+  </div>
+  

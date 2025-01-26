@@ -1,0 +1,11 @@
+.btn-link {
+    padding: 0;
+    font-size: 0.9rem;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .btn-link:hover {
+    text-decoration: underline;
+  }
+  
